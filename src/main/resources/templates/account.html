@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>アカウント情報</title>
+</head>
+<body>
+	<form th:action="@{'/account/' + ${userId}}" method="post"
+		enctype="multipart/form-data">
+		<p>
+			<img th:src="@{'/icon/' + ${userId}}" />
+		</p>
+		<p>
+			<input type="file" name="icon" /><input type="submit"
+				value="アイコンを変更する" />
+		</p>
+		<p th:text="${userId}"></p>
+	</form>
+</body>
+</html>
