@@ -1,9 +1,10 @@
 package app;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +21,18 @@ public class AccountService {
         Account account = new Account();
         account.userId = userId;
         try {
-            account.icon = Files.readAllBytes(
-                    Paths.get(getClass().getResource("/default.png").toURI()));
+            URL icon = getClass().getResource("/default.png");
+            URLConnection con = icon.openConnection();
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            try (InputStream in = con.getInputStream()) {
+                byte[] b = new byte[Math.max(con.getContentLength(), 8192)];
+                int i;
+                while (-1 != (i = in.read(b))) {
+                    out.write(b, 0, i);
+                }
+            }
+            account.icon = out.toByteArray();
         } catch (IOException e) {
-        } catch (URISyntaxException e) {
         }
         repository.create(account);
     }
