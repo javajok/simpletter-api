@@ -30,13 +30,4 @@ public class TweetService {
         tweet.user = user;
         tweetRepository.create(tweet);
     }
-
-    @Transactional
-    public void delete(String userId, UUID id) {
-        Tweet tweet = tweetRepository.find(id);
-
-        //TODO ユーザーの確認
-
-        tweetRepository.remove(tweet);
-    }
 }
