@@ -1,6 +1,5 @@
 package app;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,11 @@ public class TweetController {
     TweetService service;
 
     @RequestMapping(value = "/timeline", method = RequestMethod.GET)
-    public List<TweetView> getTimeline() {
-        return service.getTimeline().stream().map(TweetView::fromTweet)
-                .collect(Collectors.toList());
+    public Timeline getTimeline() {
+        Timeline timeline = new Timeline();
+        timeline.tweets = service.getTimeline().stream()
+                .map(TweetView::fromTweet).collect(Collectors.toList());
+        return timeline;
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
