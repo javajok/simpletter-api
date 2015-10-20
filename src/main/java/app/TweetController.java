@@ -22,7 +22,9 @@ public class TweetController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public void post(@RequestParam String userId, @RequestParam String text) {
-        service.post(userId, text);
+    public TweetView post(@RequestParam String userId,
+            @RequestParam String text) {
+        Tweet tweet = service.post(userId, text);
+        return TweetView.fromTweet(tweet);
     }
 }
