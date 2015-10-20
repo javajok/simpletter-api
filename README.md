@@ -24,3 +24,11 @@ curl http://localhost:8080/timeline
 curl http://localhost:8080/post -F userId=backpaper0 -F "text=Hello world"
 ```
 
+## アイコン
+
+* `/icon/{userId}`
+
+```
+curl -o icon.png http://localhost:8080/icon/backpaper0
+```
+
