@@ -19,7 +19,7 @@ public class AccountController {
     AccountService service;
 
     @RequestMapping(value = "/account/{userId}", method = RequestMethod.GET)
-    String view(Model model, @PathVariable String userId) {
+    public String view(Model model, @PathVariable String userId) {
 
         //TODO アカウントの存在チェック
 
