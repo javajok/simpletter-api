@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name = "Tweet.findAll", query = "SELECT t FROM Tweet t JOIN t.user u")
+@NamedQuery(name = "Tweet.findAll", query = "SELECT t FROM Tweet t JOIN t.user u ORDER BY t.timestamp DESC")
 public class Tweet implements Serializable {
 
     @Id
