@@ -21,7 +21,7 @@ public class TweetService {
     }
 
     @Transactional
-    public Tweet post(String userId, String text) {
+    public Tweet tweet(String userId, String text) {
         Account user = accountRepository.find(userId);
         Tweet tweet = new Tweet();
         tweet.id = UUID.randomUUID();

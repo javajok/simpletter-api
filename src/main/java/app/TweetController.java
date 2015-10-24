@@ -22,10 +22,10 @@ public class TweetController {
         return timeline;
     }
 
-    @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public TweetView post(@RequestParam String userId,
+    @RequestMapping(value = "/tweet", method = RequestMethod.POST)
+    public TweetView tweet(@RequestParam String userId,
             @RequestParam String text) {
-        Tweet tweet = service.post(userId, text);
+        Tweet tweet = service.tweet(userId, text);
         return TweetView.fromTweet(tweet);
     }
 }
