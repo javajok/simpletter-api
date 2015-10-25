@@ -16,12 +16,12 @@ Browse http://localhost:8080/signup
 curl http://localhost:8080/timeline
 ```
 
-## つぶやきをポストする
+## つぶやく
 
-* `/post`
+* `/tweet`
 
 ```
-curl http://localhost:8080/post -F userId=backpaper0 -F "text=Hello world"
+curl http://localhost:8080/tweet -F userId=backpaper0 -F "text=Hello world"
 ```
 
 ## アイコン
