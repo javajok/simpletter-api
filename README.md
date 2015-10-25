@@ -32,3 +32,7 @@ curl http://localhost:8080/post -F userId=backpaper0 -F "text=Hello world"
 curl -o icon.png http://localhost:8080/icon/backpaper0
 ```
 
+## ライセンス
+
+[Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)
+
