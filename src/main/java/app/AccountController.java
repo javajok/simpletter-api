@@ -53,7 +53,7 @@ public class AccountController {
         return account.icon;
     }
 
-    @RequestMapping("account")
+    @RequestMapping("/accounts")
     public String list(Model model) {
         List<Account> accounts = service.findAll();
         model.addAttribute("accounts", accounts);
