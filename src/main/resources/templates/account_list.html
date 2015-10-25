@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>アカウント一覧</title>
+</head>
+<body>
+<ul>
+    <li th:each="account : ${accounts}" th:text="${account.userId}"></li>
+</ul>
+</body>
+</html>

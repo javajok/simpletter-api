@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,5 +51,12 @@ public class AccountController {
         Account account = service.find(userId);
 
         return account.icon;
+    }
+
+    @RequestMapping("account")
+    public String list(Model model) {
+        List<Account> accounts = service.findAll();
+        model.addAttribute("accounts", accounts);
+        return "account_list";
     }
 }

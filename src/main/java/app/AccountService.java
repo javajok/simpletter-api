@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,5 +46,9 @@ public class AccountService {
     public void update(String userId, byte[] icon) {
         Account account = repository.find(userId);
         account.icon = icon;
+    }
+
+    public List<Account> findAll() {
+        return repository.findAll();
     }
 }

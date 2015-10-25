@@ -1,9 +1,10 @@
 package app;
 
-import javax.persistence.EntityManager;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 public class AccountRepository {
@@ -17,5 +18,9 @@ public class AccountRepository {
 
     public Account find(String userId) {
         return em.find(Account.class, userId);
+    }
+
+    public List<Account> findAll() {
+        return em.createNamedQuery("Account.findAll", Account.class).getResultList();
     }
 }
