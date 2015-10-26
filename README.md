@@ -3,7 +3,7 @@
 ## 動かし方
 
 ```
-gradlew bootRun
+./gradlew bootRun
 ```
 
 Browse http://localhost:8080/signup
