@@ -1,4 +1,4 @@
-package app;
+package sample;
 
 import java.time.LocalDateTime;
 import java.util.List;
