@@ -1,14 +1,31 @@
 # API Sample
 
+ほんのりTwitter風のAPIです。
+[クライアントアプリの参照実装](https://github.com/javajok/simple-api-client-sample)もあります。
+
 ## 動かし方
+
+IDEから `Application` を実行する、またはGradleで動かす事ができます。
 
 ```
 ./gradlew bootRun
 ```
 
-Browse http://localhost:8080/signup
+コンソールに
 
-## タイムラインを取得する
+> Started Application in 9.005 seconds (JVM running for 9.565)
+
+といった感じのログが出力されたら正常に起動しています。
+
+Webブラウザで次のURLを開いてみてください。
+
+* http://localhost:8080/signup
+
+## APIリファレンス
+
+### タイムラインを取得する
+
+投稿されたつぶやきの一覧を取得します。
 
 * `/timeline`
 
@@ -16,7 +33,9 @@ Browse http://localhost:8080/signup
 curl http://localhost:8080/timeline
 ```
 
-## つぶやく
+### つぶやく
+
+つぶやきを投稿します。
 
 * `/tweet`
 
@@ -24,7 +43,9 @@ curl http://localhost:8080/timeline
 curl http://localhost:8080/tweet -F userId=backpaper0 -F "text=Hello world"
 ```
 
-## アイコン
+### アイコン
+
+ユーザーのアイコンを取得します。
 
 * `/icon/{userId}`
 
