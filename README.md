@@ -19,7 +19,7 @@ IDEから `Application` を実行する、またはGradleで動かす事がで�
 
 Webブラウザで次のURLを開いてみてください。
 
-* http://localhost:8080/signup
+* http://localhost:8090/signup
 
 ## APIリファレンス
 
@@ -30,7 +30,7 @@ Webブラウザで次のURLを開いてみてください。
 * `/timeline`
 
 ```
-curl http://localhost:8080/timeline
+curl http://localhost:8090/timeline
 ```
 
 ### つぶやく
@@ -40,7 +40,7 @@ curl http://localhost:8080/timeline
 * `/tweet`
 
 ```
-curl http://localhost:8080/tweet -F userId=backpaper0 -F "text=Hello world"
+curl http://localhost:8090/tweet -F userId=backpaper0 -F "text=Hello world"
 ```
 
 ### アイコン
@@ -50,7 +50,7 @@ curl http://localhost:8080/tweet -F userId=backpaper0 -F "text=Hello world"
 * `/icon/{userId}`
 
 ```
-curl -o icon.png http://localhost:8080/icon/backpaper0
+curl -o icon.png http://localhost:8090/icon/backpaper0
 ```
 
 ## ライセンス
