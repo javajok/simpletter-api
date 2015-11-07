@@ -6,6 +6,12 @@ import java.util.Optional;
 
 import javax.persistence.AttributeConverter;
 
+/**
+ * JPAのエンティティでTimestampをLocalDateTimeとして扱うために相互変換を行うクラスです。
+ * 
+ * @author backpaper0
+ *
+ */
 public class LocalDateTimeAttributeConverter
         implements AttributeConverter<LocalDateTime, Timestamp> {
 

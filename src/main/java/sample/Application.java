@@ -12,6 +12,14 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * アプリケーションのエントリーポイントとなるクラスです。
+ * 
+ * このクラスを実行する事で用意されているAPIがすべて使用可能になります。
+ * 
+ * @author backpaper0
+ *
+ */
 @SpringBootApplication
 public class Application {
 
@@ -24,12 +32,22 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     * LocalDateTimeをJSONに変換するためカスタマイズしたObjectMapperを返します。
+     * 
+     * @return
+     */
     @Bean
     ObjectMapper objectMapper() {
         return Jackson2ObjectMapperBuilder.json().serializerByType(
                 LocalDateTime.class, new LocalDateTimeJsonSerializer()).build();
     }
 
+    /**
+     * 動作確認のためのテストデータを作成します。
+     * 
+     * @return
+     */
     @Bean
     ApplicationListener<ContextRefreshedEvent> listener() {
         return new ApplicationListener<ContextRefreshedEvent>() {

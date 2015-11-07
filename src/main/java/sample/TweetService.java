@@ -8,6 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * ツイートに関するロジックをまとめたクラスです。
+ * 
+ * @author backpaper0
+ *
+ */
 @Service
 public class TweetService {
 
@@ -16,10 +22,22 @@ public class TweetService {
     @Autowired
     AccountRepository accountRepository;
 
+    /**
+     * これまで投稿されたすべてのツイートを返します。
+     * 
+     * @return ツイートのリスト
+     */
     public List<Tweet> getTimeline() {
         return tweetRepository.findAll();
     }
 
+    /**
+     * ツイートを構築して保存します。
+     * 
+     * @param userId ユーザーID
+     * @param text ツイートの内容
+     * @return 構築されたツイート
+     */
     @Transactional
     public Tweet tweet(String userId, String text) {
         Account user = accountRepository.find(userId);

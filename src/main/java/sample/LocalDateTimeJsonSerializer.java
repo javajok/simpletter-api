@@ -8,6 +8,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
+/**
+ * LocalDateTimeのJSONへの変換方法を定義したクラスです。
+ * 
+ * @author backpaper0
+ *
+ */
 public class LocalDateTimeJsonSerializer extends JsonSerializer<LocalDateTime> {
 
     @Override

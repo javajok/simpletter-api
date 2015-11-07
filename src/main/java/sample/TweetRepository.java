@@ -21,7 +21,7 @@ public class TweetRepository {
     EntityManager em;
 
     /**
-     * これまで投稿されたツイートをすべて検索して返します。
+     * これまで投稿されたすべてのツイートを検索して返します。
      * 
      * @return 抽出されたツイートのリスト
      */

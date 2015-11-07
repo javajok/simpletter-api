@@ -1,10 +1,11 @@
 package sample;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import javax.persistence.EntityManager;
-import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 /**
  * ユーザーアカウントをデータベースに保存したり読み込むためのクラスです。
@@ -38,7 +39,7 @@ public class AccountRepository {
     }
 
     /**
-     * 登録されているユーザーアカウントをすべて検索して返します。
+     * 登録されているすべてのユーザーアカウントを検索して返します。
      * 
      * @return 抽出されたユーザーアカウントのリスト
      */
