@@ -1,4 +1,4 @@
-# API Sample
+# Simpletter API
 
 ほんのりTwitter風のAPIです。
 [クライアントアプリの参照実装](https://github.com/javajok/simple-api-client-sample)もあります。
