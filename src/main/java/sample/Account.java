@@ -14,7 +14,7 @@ import javax.persistence.NamedQuery;
  *
  */
 @Entity
-@NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a")
+@NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a ORDER BY a.userId ASC")
 public class Account implements Serializable {
 
     /**
