@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -35,9 +38,9 @@ public class AccountController {
     @RequestMapping(value = "/account/{userId}", method = RequestMethod.GET)
     public String view(Model model, @PathVariable String userId) {
 
-        //TODO アカウントの存在チェック
+        Account account = service.find(userId);
 
-        model.addAttribute("userId", userId);
+        model.addAttribute("userId", account.userId);
 
         return "account";
     }
@@ -53,8 +56,6 @@ public class AccountController {
     @RequestMapping(value = "/account/{userId}", method = RequestMethod.POST)
     public String update(@PathVariable String userId,
             @RequestParam MultipartFile icon) throws IOException {
-
-        //TODO アカウントの存在チェック
 
         //TODO 画像の縮小
 
@@ -73,8 +74,6 @@ public class AccountController {
     @ResponseBody
     public byte[] icon(@PathVariable String userId) {
 
-        //TODO アカウントの存在チェック
-
         Account account = service.find(userId);
 
         return account.icon;
@@ -91,5 +90,10 @@ public class AccountController {
         List<Account> accounts = service.findAll();
         model.addAttribute("accounts", accounts);
         return "account_list";
+    }
+
+    @ExceptionHandler(AccountNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void handleAccountNotFound(AccountNotFoundException e) {
     }
 }

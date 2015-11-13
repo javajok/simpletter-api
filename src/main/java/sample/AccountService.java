@@ -56,7 +56,11 @@ public class AccountService {
      * @return ユーザーアカウント
      */
     public Account find(String userId) {
-        return repository.find(userId);
+        Account found = repository.find(userId);
+        if (found == null) {
+            throw new AccountNotFoundException();
+        }
+        return found;
     }
 
     /**
@@ -68,6 +72,9 @@ public class AccountService {
     @Transactional
     public void update(String userId, byte[] icon) {
         Account account = repository.find(userId);
+        if (account == null) {
+            throw new AccountNotFoundException();
+        }
         account.icon = icon;
     }
 
