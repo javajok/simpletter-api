@@ -38,6 +38,11 @@ public class TweetService {
      * @param text ツイートの内容
      * @return 構築されたツイート
      */
+    // @Transactionalはこのメソッドを1つのトランザクション内で実行する
+    // 事を指定しています。
+    // メソッドが正常に終了するとトランザクションはコミットされます。
+    // 例外が投げられる事によってメソッドが終了するとトランザクションは
+    // ロールバックされます。
     @Transactional
     public Tweet tweet(String userId, String text) {
         Account user = accountRepository.find(userId);
